@@ -26,7 +26,7 @@ dependencies:
   url_launcher: 6.1.5
   fluttertoast: ^8.1.1
   mad2_db_dataobjects: ^1.0.0+1
-  mad2_addevent: ^1.0.1+4
+  mad2_addevent: ^1.0.1+5
 
 
 
