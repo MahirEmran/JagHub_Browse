@@ -1,6 +1,6 @@
 name: mad2_browsepage
 description: Adds an event for MAD 2.0.
-version: 1.0.0+3
+version: 1.0.0+4
 repository: https://github.com/MahirEmran/MAD2_BrowsePage.git
 
 environment:
