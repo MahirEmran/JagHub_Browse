@@ -1,6 +1,6 @@
 name: mad2_browsepage
 description: Adds an event for MAD 2.0.
-version: 1.0.0+1
+version: 1.0.0+3
 repository: https://github.com/MahirEmran/MAD2_BrowsePage.git
 
 environment:
@@ -26,7 +26,7 @@ dependencies:
   url_launcher: 6.1.5
   fluttertoast: ^8.1.1
   mad2_db_dataobjects: ^1.0.0+1
-  mad2_addevent: ^1.0.1+5
+  mad2_addevent: ^1.0.1+6
 
 
 
