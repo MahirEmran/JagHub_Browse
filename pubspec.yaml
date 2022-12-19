@@ -1,6 +1,6 @@
 name: mad2_browsepage
 description: Adds an event for MAD 2.0.
-version: 1.0.0+4
+version: 1.2.8
 repository: https://github.com/MahirEmran/MAD2_BrowsePage.git
 
 environment:
@@ -9,24 +9,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  auto_size_text: 3.0.0
-  cached_network_image: 3.2.1
-  easy_debounce: 2.0.1
-  flutter_animate: 1.0.0
-  flutter_cache_manager: 3.3.0
-  font_awesome_flutter: 10.1.0
-  from_css_color: 2.0.0
-  google_fonts: 3.0.1
+
   intl: 0.17.0
-  json_path: 0.4.1
-  page_transition: 2.0.4
-  shared_preferences: 2.0.15
-  sqflite: 2.2.0+2
-  timeago: 3.2.2
+
   url_launcher: 6.1.5
   fluttertoast: ^8.1.1
-  mad2_db_dataobjects: ^1.0.0+1
-  mad2_addevent: ^1.0.1+6
+  mad2_db_dataobjects: ^1.0.2
+  easy_debounce: ^2.0.2+1
+
 
 
 
