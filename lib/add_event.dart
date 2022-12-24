@@ -865,8 +865,10 @@ class _AddEventPageState extends State<AddEventPage> {
                                                                         (context,
                                                                             child) {
                                                                       return Theme(
-                                                                        data: Theme.of(context)
-                                                                            .copyWith(
+                                                                        data:
+                                                                            ThemeData(
+                                                                          backgroundColor:
+                                                                              Colors.white,
                                                                           colorScheme:
                                                                               ColorScheme.light(
                                                                             primary: Color.fromARGB(
@@ -877,7 +879,9 @@ class _AddEventPageState extends State<AddEventPage> {
                                                                             onPrimary:
                                                                                 Colors.white, // <-- SEE HERE
                                                                             onSurface:
-                                                                                Colors.black, // <-- SEE HERE
+                                                                                Colors.black,
+                                                                            surface:
+                                                                                Colors.white,
                                                                           ),
                                                                           textButtonTheme:
                                                                               TextButtonThemeData(

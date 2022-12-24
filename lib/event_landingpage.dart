@@ -145,6 +145,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                                           Color(0xFFF5F5F5),
                                                     ),
                                                   ),
+                                                  SizedBox(height: 10),
                                                 ],
                                               ),
                                             ),
@@ -448,18 +449,20 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                           25, 0, 0, 0),
                                       child: InkWell(
                                         onTap: () {
+                                          Navigator.of(context)
+                                              .pop(BrowsePage());
                                           API()
                                               .joinEvent(userInfo.userId,
                                                   eventInfo.eventId)
-                                              .then((value) => null);
-                                          Navigator.of(context)
-                                              .pop(BrowsePage());
-                                          Navigator.pushReplacement(
-                                              context,
-                                              MaterialPageRoute(
-                                                builder: (context) =>
-                                                    BrowsePage(),
-                                              ));
+                                              .then((value) {
+                                            Navigator.pushReplacement(
+                                                context,
+                                                MaterialPageRoute(
+                                                  builder: (context) =>
+                                                      BrowsePage(),
+                                                ));
+                                          });
+
                                           Fluttertoast.showToast(
                                             msg: "Successfully joined event!",
                                             toastLength: Toast.LENGTH_SHORT,

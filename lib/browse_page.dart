@@ -8,6 +8,7 @@ import 'package:mad2_db_dataobjects/group_data.dart';
 import 'add_event.dart';
 import 'event_landingpage.dart';
 import 'package:mad2_db_dataobjects/user_data.dart';
+import 'package:mad2_leaderboard/leaderboard.dart';
 
 import 'package:url_launcher/url_launcher.dart';
 
@@ -26,7 +27,6 @@ class _BrowsePageState extends State<BrowsePage> {
   late UserData currentUser;
   late List<String> currentUserEventIds;
   late List<EventData> eventsList = [];
-  late List<EventData> userEvents = [];
   late List<Widget> eventWidgetList = [];
 
   _BrowsePageState() {
@@ -35,140 +35,170 @@ class _BrowsePageState extends State<BrowsePage> {
       currentUser = value;
       currentUserEventIds = currentUser.currentEvents;
       currentUserEventIds.addAll(currentUser.pastEvents);
-      for (String value2 in currentUserEventIds) {
-        API().getEvent(value2).then((value) {
-          userEvents.add(value);
-        });
-      }
-      setState(() {});
-    });
-    API().getEventList().then((value) {
-      eventListIsLoaded = true;
-      eventsList = value;
-      for (EventData value in eventsList) {
-        bool userEventExists = false;
-        for (EventData value2 in userEvents) {
-          if (value.eventId == value2.eventId) {
-            userEventExists = true;
-            break;
+      API().getEventList().then((value2) {
+        eventListIsLoaded = true;
+        eventsList = value2;
+        for (EventData value in eventsList) {
+          bool userEventExists = false;
+          for (String id in currentUserEventIds) {
+            if (value.eventId == id) {
+              userEventExists = true;
+              break;
+            }
           }
-        }
-        if (userEventExists) {
-          continue;
-        }
-        String eventDate = value.date;
-        DateFormat formatter = new DateFormat("MM-dd-yyyy");
+          if (userEventExists) {
+            continue;
+          }
+          String eventDate = value.date;
+          DateFormat formatter = new DateFormat("MM-dd-yyyy");
 
-        DateTime dt = formatter.parse(eventDate);
-        if (dt.isBefore(DateTime.now())) {
-          continue;
-        } else {
-          eventWidgetList.add(
-            Padding(
-              padding: EdgeInsetsDirectional.fromSTEB(5, 10, 5, 0),
-              child: InkWell(
-                onTap: () {
-                  Navigator.of(context).push(
-                    MaterialPageRoute(
-                      builder: (context) => EventLandingPage(
-                        currentUser: currentUser,
-                        event: value,
+          DateTime dt = formatter.parse(eventDate);
+          if (dt.isBefore(DateTime.now())) {
+            continue;
+          } else {
+            eventWidgetList.add(
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(5, 10, 5, 0),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => EventLandingPage(
+                          currentUser: currentUser,
+                          event: value,
+                        ),
                       ),
-                    ),
-                  );
-                },
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      child: Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
+                    );
+                  },
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
+                          child: Column(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              ListTile(
+                                title: Text(
+                                  value.title,
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Colors.black,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                subtitle: Text(
+                                  value.date +
+                                      ", " +
+                                      value.time +
+                                      ", @" +
+                                      value.location +
+                                      ", from " +
+                                      value.source,
+                                  style: TextStyle(
+                                    fontFamily: 'Montserrat',
+                                    color: Color.fromARGB(255, 52, 51, 51),
+                                    fontSize: 12,
+                                    fontWeight: FontWeight.w500,
+                                  ),
+                                ),
+                                tileColor: Color(0xFFF5F5F5),
+                                dense: false,
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.end,
                           children: [
-                            ListTile(
-                              title: Text(
-                                value.title,
-                                style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  color: Colors.black,
-                                  fontSize: 18,
-                                  fontWeight: FontWeight.w700,
-                                ),
+                            Container(
+                              width: 85,
+                              height: 40,
+                              decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 75, 57, 239),
+                                borderRadius: BorderRadius.circular(20),
                               ),
-                              subtitle: Text(
-                                value.date +
-                                    ", " +
-                                    value.time +
-                                    ", @" +
-                                    value.location +
-                                    ", from " +
-                                    value.source,
-                                style: TextStyle(
-                                  fontFamily: 'Montserrat',
-                                  color: Color.fromARGB(255, 52, 51, 51),
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w500,
-                                ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0, 0, 5, 0),
+                                    child: Icon(
+                                      Icons.star_rounded,
+                                      color: Colors.white,
+                                      size: 25,
+                                    ),
+                                  ),
+                                  Text(
+                                    value.pointReward.toString(),
+                                    style: TextStyle(
+                                      fontFamily: 'Montserrat',
+                                      color: Colors.white,
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              tileColor: Color(0xFFF5F5F5),
-                              dense: false,
                             ),
                           ],
                         ),
                       ),
-                    ),
-                    Padding(
-                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 10, 0),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          }
+        }
+        if (eventWidgetList.length == 0) {
+          eventWidgetList.add(
+            Padding(
+              padding: EdgeInsetsDirectional.fromSTEB(5, 10, 5, 0),
+              child: Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: Padding(
+                      padding: EdgeInsetsDirectional.fromSTEB(0, 0, 15, 0),
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.end,
                         children: [
-                          Container(
-                            width: 85,
-                            height: 40,
-                            decoration: BoxDecoration(
-                              color: Color.fromARGB(255, 75, 57, 239),
-                              borderRadius: BorderRadius.circular(20),
+                          ListTile(
+                            title: Text(
+                              'Sorry, but there are no other available events for you to join. Check back later!',
+                              style: TextStyle(
+                                fontFamily: 'Montserrat',
+                                color: Colors.black,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500,
+                              ),
                             ),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0, 0, 5, 0),
-                                  child: Icon(
-                                    Icons.star_rounded,
-                                    color: Colors.white,
-                                    size: 25,
-                                  ),
-                                ),
-                                Text(
-                                  value.pointReward.toString(),
-                                  style: TextStyle(
-                                    fontFamily: 'Montserrat',
-                                    color: Colors.white,
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
+                            tileColor: Color(0xFFF5F5F5),
+                            dense: false,
                           ),
                         ],
                       ),
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
           );
         }
-      }
-      widgetListLoaded = true;
-      setState(() {});
+        widgetListLoaded = true;
+        setState(() {});
+      });
       setState(() {});
     });
   }
@@ -181,6 +211,8 @@ class _BrowsePageState extends State<BrowsePage> {
         padding: EdgeInsetsDirectional.fromSTEB(0, 160, 0, 0),
         child: Container(
           width: MediaQuery.of(context).size.width,
+          constraints:
+              BoxConstraints(minHeight: MediaQuery.of(context).size.height),
           decoration: BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
@@ -246,13 +278,11 @@ class _BrowsePageState extends State<BrowsePage> {
                           ),
                           InkWell(
                             onTap: () async {
-                              await launchUrl(Uri(
-                                scheme: 'sms',
-                                path: '4253759040',
-                                queryParameters: <String, String>{
-                                  'body': 'testing app',
-                                },
-                              ));
+                              Navigator.of(context).push(
+                                MaterialPageRoute(
+                                  builder: (context) => LeaderboardPage(),
+                                ),
+                              );
                             },
                             child: Container(
                               width: 150,
