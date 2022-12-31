@@ -5,11 +5,13 @@ import 'package:intl/intl.dart';
 import 'package:mad2_db_dataobjects/API.dart';
 import 'package:mad2_db_dataobjects/event_data.dart';
 import 'package:mad2_db_dataobjects/group_data.dart';
+import 'package:mad2_shop/shop_page.dart';
 import 'add_event.dart';
 import 'event_landingpage.dart';
 import 'package:mad2_db_dataobjects/user_data.dart';
 import 'package:mad2_leaderboard/leaderboard.dart';
-
+import 'package:mad2_login/authentication.dart';
+import 'package:mad2_login/sign_in_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class BrowsePage extends StatefulWidget {
@@ -20,6 +22,7 @@ class BrowsePage extends StatefulWidget {
 }
 
 class _BrowsePageState extends State<BrowsePage> {
+  bool _isSigningOut = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   bool userDataIsLoaded = false;
   bool eventListIsLoaded = false;
@@ -432,6 +435,12 @@ class _BrowsePageState extends State<BrowsePage> {
                                               ),
                                               onPressed: () {
                                                 // map this button to add group!
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        ShopPage(),
+                                                  ),
+                                                );
                                                 print('IconButton pressed ...');
                                               },
                                             ),
@@ -450,6 +459,48 @@ class _BrowsePageState extends State<BrowsePage> {
                   ),
                 ],
               ),
+              _isSigningOut
+                  ? CircularProgressIndicator(
+                      valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                    )
+                  : ElevatedButton(
+                      style: ButtonStyle(
+                        backgroundColor: MaterialStateProperty.all(
+                          Colors.redAccent,
+                        ),
+                        shape: MaterialStateProperty.all(
+                          RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                        ),
+                      ),
+                      onPressed: () async {
+                        setState(() {
+                          _isSigningOut = true;
+                        });
+                        await Authentication.signOut(context: context);
+                        setState(() {
+                          _isSigningOut = false;
+                        });
+                        Navigator.of(context).pushReplacement(
+                          MaterialPageRoute(
+                            builder: (context) => SignInScreen(),
+                          ),
+                        );
+                      },
+                      child: Padding(
+                        padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+                        child: Text(
+                          'Sign Out',
+                          style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.white,
+                            letterSpacing: 2,
+                          ),
+                        ),
+                      ),
+                    ),
               SizedBox(height: 50),
             ],
           ),
