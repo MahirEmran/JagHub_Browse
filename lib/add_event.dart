@@ -271,7 +271,11 @@ class _AddEventPageState extends State<AddEventPage> {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        width: 300,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            .85,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Padding(
@@ -456,7 +460,11 @@ class _AddEventPageState extends State<AddEventPage> {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        width: 300,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            .85,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Padding(
@@ -643,7 +651,11 @@ class _AddEventPageState extends State<AddEventPage> {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        width: 300,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            .85,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Padding(
@@ -851,7 +863,11 @@ class _AddEventPageState extends State<AddEventPage> {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        width: 300,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            .85,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: TextFormField(
@@ -1100,7 +1116,11 @@ class _AddEventPageState extends State<AddEventPage> {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        width: 300,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            .85,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Padding(
@@ -1356,7 +1376,11 @@ class _AddEventPageState extends State<AddEventPage> {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        width: 300,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            .85,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Padding(
@@ -1542,7 +1566,11 @@ class _AddEventPageState extends State<AddEventPage> {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        width: 300,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            .85,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child:
@@ -1653,7 +1681,11 @@ class _AddEventPageState extends State<AddEventPage> {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        width: 300,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            .85,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Padding(
@@ -1838,7 +1870,11 @@ class _AddEventPageState extends State<AddEventPage> {
                                                   child: Row(
                                                     children: [
                                                       Container(
-                                                        width: 300,
+                                                        width: MediaQuery.of(
+                                                                    context)
+                                                                .size
+                                                                .width *
+                                                            .85,
                                                         decoration:
                                                             BoxDecoration(),
                                                         child: Padding(
