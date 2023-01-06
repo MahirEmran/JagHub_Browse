@@ -1,10 +1,10 @@
 name: mad2_browsepage
 description: JagHub browsing page for FBLA's Coding and Programming event. 2022-23.
-version: 1.8.3
+version: 1.8.7
 repository: https://github.com/MahirEmran/JagHub_Browse.git
 
 environment:
-  sdk: ">=2.17.0 <3.0.0"
+  sdk: ">=2.18.4 <3.0.0"
 
 dependencies:
   flutter:
@@ -20,6 +20,7 @@ dependencies:
   mad2_login: 
   easy_debounce: ^2.0.2+1
   mad2_navbar: 
+  flutter_survey: '^0.1.4'
 
 dev_dependencies:
 

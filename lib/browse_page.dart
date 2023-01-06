@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:mad2_browsepage/find_event_quiz.dart';
 
 import 'package:mad2_db_dataobjects/API.dart';
 import 'package:mad2_db_dataobjects/event_data.dart';
@@ -22,7 +23,6 @@ class BrowsePage extends StatefulWidget {
 }
 
 class _BrowsePageState extends State<BrowsePage> {
-  bool _isSigningOut = false;
   final scaffoldKey = GlobalKey<ScaffoldState>();
   bool userDataIsLoaded = false;
   bool eventListIsLoaded = false;
@@ -202,7 +202,6 @@ class _BrowsePageState extends State<BrowsePage> {
         widgetListLoaded = true;
         setState(() {});
       });
-      setState(() {});
     });
   }
 
@@ -325,6 +324,52 @@ class _BrowsePageState extends State<BrowsePage> {
                     ),
                   ],
                 ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (context) => FindEventQuizPage(),
+                        ),
+                      );
+                    },
+                    child: Container(
+                      width: 250,
+                      height: 60,
+                      decoration: BoxDecoration(
+                        color: Color.fromARGB(202, 23, 224, 201),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(0, 0, 5, 0),
+                            child: Icon(
+                              Icons.content_paste_search,
+                              color: Colors.white,
+                              size: 40,
+                            ),
+                          ),
+                          Text(
+                            'Find an Event',
+                            style: TextStyle(
+                              fontFamily: 'Montserrat',
+                              color: Color.fromARGB(255, 255, 255, 255),
+                              fontSize: 20,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Padding(
                 padding: EdgeInsetsDirectional.fromSTEB(0, 15, 0, 0),
