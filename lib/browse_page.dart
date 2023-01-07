@@ -496,7 +496,7 @@ class _BrowsePageState extends State<BrowsePage> {
                   ),
                 ],
               ),
-              SizedBox(height: 50),
+              SizedBox(height: 100),
             ],
           ),
         ),

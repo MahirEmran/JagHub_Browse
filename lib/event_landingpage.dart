@@ -361,7 +361,7 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                           fontFamily: 'Montserrat'),
                                     ),
                                     Container(
-                                      width: 125,
+                                      width: 140,
                                       decoration: BoxDecoration(
                                         color: Color(0xFF4B39EF),
                                         borderRadius: BorderRadius.circular(10),
