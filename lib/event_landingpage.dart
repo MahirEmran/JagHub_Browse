@@ -450,18 +450,11 @@ class _EventLandingPageState extends State<EventLandingPage> {
                                           25, 0, 0, 0),
                                       child: InkWell(
                                         onTap: () {
-                                          Navigator.of(context)
-                                              .pop(Navigation());
                                           API()
                                               .joinEvent(userInfo.userId,
                                                   eventInfo.eventId)
                                               .then((value) {
-                                            Navigator.pushReplacement(
-                                                context,
-                                                MaterialPageRoute(
-                                                  builder: (context) =>
-                                                      Navigation(),
-                                                ));
+                                            Navigator.pop(context);
                                           });
 
                                           Fluttertoast.showToast(

@@ -58,62 +58,67 @@ class _FindEventQuizPageState extends State<FindEventQuizPage> {
                   ),
                 ),
                 SizedBox(height: 10),
-                Form(
-                  key: _formKey,
-                  child: Survey(
-                    onNext: (questionResults) {
-                      print(questionResults);
-                      //store the result
-                    },
-                    initialData: [
-                      Question(
-                        question: "Do you enjoy attending ASB-related events?",
-                        singleChoice: true,
-                        answerChoices: {
-                          "Yes": null,
-                          "No": null,
-                        },
-                        isMandatory: true,
-                      ),
-                      Question(
-                        question: "Do you like more large scale events?",
-                        singleChoice: true,
-                        answerChoices: {
-                          "Yes": null,
-                          "No": null,
-                        },
-                        isMandatory: true,
-                      ),
-                      Question(
-                        question: "Do you prefer more competitive events?",
-                        singleChoice: true,
-                        answerChoices: {
-                          "Yes": null,
-                          "No": null,
-                        },
-                        isMandatory: true,
-                      ),
-                      Question(
-                        question:
-                            "Are you interested in just hanging out with friends?",
-                        singleChoice: true,
-                        answerChoices: {
-                          "Yes": null,
-                          "No": null,
-                        },
-                        isMandatory: true,
-                      ),
-                      Question(
-                        question:
-                            "Do you want a place to talk about your interests?",
-                        singleChoice: true,
-                        answerChoices: {
-                          "Yes": null,
-                          "No": null,
-                        },
-                        isMandatory: true,
-                      ),
-                    ],
+                Container(
+                  width: MediaQuery.of(context).size.width * .9,
+                  color: Colors.white,
+                  child: Form(
+                    key: _formKey,
+                    child: Survey(
+                      onNext: (questionResults) {
+                        print(questionResults);
+                        //store the result
+                      },
+                      initialData: [
+                        Question(
+                          question:
+                              "Do you enjoy attending ASB-related events?",
+                          singleChoice: true,
+                          answerChoices: {
+                            "Yes": null,
+                            "No": null,
+                          },
+                          isMandatory: true,
+                        ),
+                        Question(
+                          question: "Do you like more large scale events?",
+                          singleChoice: true,
+                          answerChoices: {
+                            "Yes": null,
+                            "No": null,
+                          },
+                          isMandatory: true,
+                        ),
+                        Question(
+                          question: "Do you prefer more competitive events?",
+                          singleChoice: true,
+                          answerChoices: {
+                            "Yes": null,
+                            "No": null,
+                          },
+                          isMandatory: true,
+                        ),
+                        Question(
+                          question:
+                              "Are you interested in just hanging out with friends?",
+                          singleChoice: true,
+                          answerChoices: {
+                            "Yes": null,
+                            "No": null,
+                          },
+                          isMandatory: true,
+                        ),
+                        Question(
+                          question:
+                              "Do you want a place to talk about your interests?",
+                          singleChoice: true,
+                          answerChoices: {
+                            "Yes": null,
+                            "No": null,
+                          },
+                          isMandatory: true,
+                        ),
+                      ],
+                    ),
                   ),
                 ),
                 SizedBox(height: 15),

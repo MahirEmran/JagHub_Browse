@@ -163,12 +163,7 @@ class _AddEventPageState extends State<AddEventPage> {
               );
 
               // remove old browsepage from
-              Navigator.of(context).pop(Navigation());
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Navigation(),
-                  ));
+              Navigator.pop(context);
             } else {
               Fluttertoast.showToast(
                 msg:

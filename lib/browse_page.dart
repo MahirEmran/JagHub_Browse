@@ -325,6 +325,7 @@ class _BrowsePageState extends State<BrowsePage> {
                   ],
                 ),
               ),
+              SizedBox(height: 15),
               Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.center,
