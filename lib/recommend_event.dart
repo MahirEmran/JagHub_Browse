@@ -5,13 +5,11 @@ import 'package:intl/intl.dart';
 import 'package:mad2_db_dataobjects/API.dart';
 import 'package:mad2_db_dataobjects/event_data.dart';
 import 'package:mad2_db_dataobjects/group_data.dart';
-import 'package:mad2_shop/shop_page.dart';
+
 import 'add_event.dart';
 import 'event_landingpage.dart';
 import 'package:mad2_db_dataobjects/user_data.dart';
-import 'package:mad2_leaderboard/leaderboard.dart';
-import 'package:mad2_login/authentication.dart';
-import 'package:mad2_login/sign_in_screen.dart';
+
 import 'package:url_launcher/url_launcher.dart';
 
 class RecommendEventPage extends StatefulWidget {

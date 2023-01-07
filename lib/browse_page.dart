@@ -6,14 +6,10 @@ import 'package:mad2_browsepage/find_event_quiz.dart';
 import 'package:mad2_db_dataobjects/API.dart';
 import 'package:mad2_db_dataobjects/event_data.dart';
 import 'package:mad2_db_dataobjects/group_data.dart';
-import 'package:mad2_shop/shop_page.dart';
+
 import 'add_event.dart';
 import 'event_landingpage.dart';
 import 'package:mad2_db_dataobjects/user_data.dart';
-import 'package:mad2_leaderboard/leaderboard.dart';
-import 'package:mad2_login/authentication.dart';
-import 'package:mad2_login/sign_in_screen.dart';
-import 'package:url_launcher/url_launcher.dart';
 
 class BrowsePage extends StatefulWidget {
   const BrowsePage({Key? key}) : super(key: key);
@@ -280,11 +276,7 @@ class _BrowsePageState extends State<BrowsePage> {
                           ),
                           InkWell(
                             onTap: () async {
-                              Navigator.of(context).push(
-                                MaterialPageRoute(
-                                  builder: (context) => LeaderboardPage(),
-                                ),
-                              );
+                              print("test");
                             },
                             child: Container(
                               width: 150,
@@ -481,12 +473,7 @@ class _BrowsePageState extends State<BrowsePage> {
                                               ),
                                               onPressed: () {
                                                 // map this button to add group!
-                                                Navigator.of(context).push(
-                                                  MaterialPageRoute(
-                                                    builder: (context) =>
-                                                        ShopPage(),
-                                                  ),
-                                                );
+
                                                 print('IconButton pressed ...');
                                               },
                                             ),

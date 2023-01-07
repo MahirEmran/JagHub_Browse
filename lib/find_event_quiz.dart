@@ -59,7 +59,8 @@ class _FindEventQuizPageState extends State<FindEventQuizPage> {
                 ),
                 SizedBox(height: 10),
                 Container(
-                  width: MediaQuery.of(context).size.width * .9,
+                  width: MediaQuery.of(context).size.width * .95,
+                  height: MediaQuery.of(context).size.height * .75,
                   color: Colors.white,
                   child: Form(
                     key: _formKey,
@@ -145,8 +146,13 @@ class _FindEventQuizPageState extends State<FindEventQuizPage> {
                         }
                       },
                       child: Container(
+                        alignment: Alignment.center,
                         width: 150,
-                        height: 50,
+                        height: 60,
+                        decoration: BoxDecoration(
+                          color: Colors.green,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
                         child: Padding(
                           padding: EdgeInsets.fromLTRB(15, 8, 15, 8),
                           child: Text("Submit Answers",

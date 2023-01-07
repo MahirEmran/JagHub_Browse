@@ -4,7 +4,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:mad2_db_dataobjects/API.dart';
 import 'package:mad2_db_dataobjects/event_data.dart';
-import 'package:mad2_navbar/navigation.dart';
+
 import 'browse_page.dart';
 
 class AddEventPage extends StatefulWidget {

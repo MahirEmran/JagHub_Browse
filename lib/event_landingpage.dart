@@ -5,7 +5,6 @@ import 'browse_page.dart';
 import 'package:mad2_db_dataobjects/API.dart';
 import 'package:mad2_db_dataobjects/event_data.dart';
 import 'package:mad2_db_dataobjects/user_data.dart';
-import 'package:mad2_navbar/navigation.dart';
 
 class EventLandingPage extends StatefulWidget {
   UserData currentUser;
