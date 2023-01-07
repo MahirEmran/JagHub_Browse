@@ -6,6 +6,7 @@ import 'package:mad2_browsepage/find_event_quiz.dart';
 import 'package:mad2_db_dataobjects/API.dart';
 import 'package:mad2_db_dataobjects/event_data.dart';
 import 'package:mad2_db_dataobjects/group_data.dart';
+import 'package:mad2_groups/Frontend/groups_page.dart';
 
 import 'add_event.dart';
 import 'event_landingpage.dart';
@@ -472,9 +473,12 @@ class _BrowsePageState extends State<BrowsePage> {
                                                 size: 40,
                                               ),
                                               onPressed: () {
-                                                // map this button to add group!
-
-                                                print('IconButton pressed ...');
+                                                Navigator.of(context).push(
+                                                  MaterialPageRoute(
+                                                    builder: (context) =>
+                                                        GroupsPage(),
+                                                  ),
+                                                );
                                               },
                                             ),
                                           ],

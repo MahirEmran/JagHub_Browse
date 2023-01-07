@@ -146,22 +146,27 @@ class _FindEventQuizPageState extends State<FindEventQuizPage> {
                         }
                       },
                       child: Container(
-                        alignment: Alignment.center,
                         width: 150,
                         height: 60,
                         decoration: BoxDecoration(
                           color: Colors.green,
                           borderRadius: BorderRadius.circular(15),
                         ),
-                        child: Padding(
-                          padding: EdgeInsets.fromLTRB(15, 8, 15, 8),
-                          child: Text("Submit Answers",
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontFamily: 'Montserrat',
-                                fontWeight: FontWeight.w600,
-                              )),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Padding(
+                              padding: EdgeInsets.fromLTRB(15, 3, 15, 3),
+                              child: Text("Submit\nAnswers",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontFamily: 'Montserrat',
+                                    fontWeight: FontWeight.w600,
+                                  )),
+                            ),
+                          ],
                         ),
                       ),
                     ),
